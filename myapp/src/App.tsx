@@ -1,10 +1,9 @@
 import "./App.css";
-
+import Todo from "./pages/Todo";
 const App = () => {
-  let username:number=123
   return (
     <>
-    <h1>{username}</h1>
+    <Todo/>
     </>
   )
 };
