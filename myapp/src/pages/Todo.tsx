@@ -1,11 +1,36 @@
-import React from 'react'
+import React,{useState} from 'react'
 import InputForm from '../components/InputForm'
 import Todolist from '../components/Todolist'
-
+import { useTranslation } from 'react-i18next'
+import { MenuItem, Select } from '@mui/material'
+import { SelectChangeEvent } from '@mui/material/Select';
+import { useAppDispatch } from '../store/hooks'
+import {store} from '../store/index'
+import { changeLanguage } from '../features/todoSlice'
 const Todo = () => {
+  const dispatch=useAppDispatch();
+  const {t}=useTranslation();
+  const [language,selectedLanguage]=useState('en');
+  const handleChange = (e:SelectChangeEvent) => {
+    // Your event handling logic here
+    selectedLanguage(e.target.value); 
+    dispatch(changeLanguage(e.target.value));
+  };
   return (
     <>
-    <h1>Todo List</h1>
+     <Select
+    labelId="demo-simple-select-label"
+    id="demo-simple-select"
+    value={language}
+    label="Age"
+    onChange={handleChange}
+  >
+    <MenuItem value='en'>English</MenuItem>
+    <MenuItem value='es'>Spanish</MenuItem>
+    <MenuItem value='pt'>Portuguese</MenuItem>
+  </Select>
+
+    <h1>{t('Todo List')}</h1>
     <InputForm/>
     <Todolist/>
     </>

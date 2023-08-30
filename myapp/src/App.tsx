@@ -1,5 +1,6 @@
 import "./App.css";
 import Todo from "./pages/Todo";
+import './localise/index'
 const App = () => {
   return (
     <>

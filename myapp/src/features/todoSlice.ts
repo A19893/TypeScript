@@ -4,12 +4,14 @@ type List={
     name: string
 }
 
-type initialStateType={
- todoList:List[]
+type initialStateType ={
+ todoList:List[],
+ language: string
 }
 
 const initialState:initialStateType={
-todoList:[]
+todoList:[],
+language:"en"
 }
 
 const todoSlice=createSlice({
@@ -21,8 +23,11 @@ const todoSlice=createSlice({
      },
      removeTodo:(state,action)=>{
        console.log("called")
+     },
+     changeLanguage:(state,action:PayloadAction<string>)=>{
+      state.language=action.payload;
      }
     }
 })
-export const {addTodo,removeTodo}=todoSlice.actions
+export const {addTodo,removeTodo,changeLanguage}=todoSlice.actions
 export default todoSlice.reducer
