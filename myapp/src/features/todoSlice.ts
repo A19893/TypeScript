@@ -21,7 +21,7 @@ const todoSlice=createSlice({
      addTodo:(state,action:PayloadAction<string>)=>{
       state.todoList.push({name:action.payload})
      },
-     removeTodo:(state,action)=>{
+     removeTodo:()=>{
        console.log("called")
      },
      changeLanguage:(state,action:PayloadAction<string>)=>{

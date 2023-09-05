@@ -5,14 +5,13 @@ import { useTranslation } from 'react-i18next'
 import { MenuItem, Select } from '@mui/material'
 import { SelectChangeEvent } from '@mui/material/Select';
 import { useAppDispatch } from '../store/hooks'
-import {store} from '../store/index'
 import { changeLanguage } from '../features/todoSlice'
 const Todo = () => {
   const dispatch=useAppDispatch();
   const {t}=useTranslation();
   const [language,selectedLanguage]=useState('en');
   const handleChange = (e:SelectChangeEvent) => {
-    // Your event handling logic here
+    // Your event handling logic her   e
     selectedLanguage(e.target.value); 
     dispatch(changeLanguage(e.target.value));
   };

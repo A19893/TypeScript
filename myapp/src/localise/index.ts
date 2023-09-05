@@ -1,4 +1,3 @@
-import { useAppSelector } from "../store/hooks";// Use useSelector from react-redux
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import { englishLang } from "./englishLang";
